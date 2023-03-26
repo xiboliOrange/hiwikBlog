@@ -25,7 +25,7 @@ export default {
   width: 35%;
   background-color: white;
   border-radius: 3%;
-  opacity: 0; /* 初始透明度为 0 */
+  opacity: 0; /* 初始透明度为 00 */
   transition: opacity 1s ease-in-out; /* 设置过渡效果 */
 }
 .background.show {
