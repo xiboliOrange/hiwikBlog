@@ -1,19 +1,29 @@
 <template>
   <div class="back">
     <div class="container">
-      <LoginView />
+      <LoginView ref="child1" v-on:hideLogin="hideLogin"/>
+      <SignUpView ref="child2" v-on:showSignUp="showSignUp"></SignUpView>
     </div>
   </div>
 </template>
 
 <script>
 import LoginView from './components/LoginView.vue'
+import SignUpView from './components/SignUpView.vue';
 
 export default {
   name: 'App',
   components: {
     LoginView,
-  },
+    SignUpView,
+},
+
+  methods: {
+    hideLogin(val) {
+      this.$refs.child1.rotateLogin(val);
+      this.$refs.child2.showView(val);
+    }
+  }
 }
 </script>
 
@@ -33,6 +43,4 @@ export default {
   align-items: center;
   height: 100vh;
 }
-
-
 </style>
