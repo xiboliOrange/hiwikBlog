@@ -1,0 +1,21 @@
+.primaryBtn,
+.primaryBtn:focus:not(.primaryBtn:hover) {
+  border: 2px solid white;
+  background: #ff963d;
+  color: white;
+}
+
+/*鼠标悬浮，没有按下；鼠标按下后抬起，没有移开*/
+.primaryBtn:focus,
+.primaryBtn:hover {
+  background-color: orange;
+  border-color: #ff963d;
+  color: white;
+}
+
+/*鼠标按下，没有抬起*/
+.primaryBtn:active {
+  background-color: orange;
+  border-color: #ff963d;
+  color: white;
+}

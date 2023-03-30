@@ -1,6 +1,5 @@
 <template>
   <div class="login">
-    <div></div>
     <img src="../img/HiwiK.png" />
     <el-form :model="loginForm" status-icon :rules="loginRules" ref="loginForm" class="login-form" label-position="center"
       @submit.native.prevent>
@@ -10,10 +9,10 @@
       </el-form-item>
       <el-form-item prop="password">
         <el-input prefix-icon="el-icon-lock" ref="password" v-model="loginForm.password" placeholder="请输入您的密码"
-          name="password" auto-complete="off" style="width: 380px;" show-password />
+          name="password" auto-complete="off"  show-password />
       </el-form-item>
       <el-form-item>
-        <el-button id="loginButton" class="loginButton" @click="submitForm('loginForm')" style="width: 56%">登录</el-button>
+        <el-button class="primaryBtn" @click="submitForm('loginForm')" style="width: 56%" round>登录</el-button>
       </el-form-item>
     </el-form>
     <div style="display: flex; align-items: center;justify-content: center; height: 50px;">
@@ -21,7 +20,7 @@
       <div style="width: 340px; height: 40px; margin-top: 10px; text-align: center">
         <button style="background-color: white; border: 0; cursor: pointer;" @click="$emit('hideLogin', true)">
           <span style="font-size: 14px; color: orange">没有账号？</span>
-          <a style="font-size: 14px; color: gray">请点击此处注册</a>
+          <span style="font-size: 14px; color: gray">请点击此处注册</span>
         </button>
       </div>
       <div class="QQ-login">
@@ -44,14 +43,14 @@ export default {
   },
 
   data () {
-    var validateUsername = (rule, value, callback) => {
+    var validateUsername = (rules, value, callback) => {
       if (value === '') {
         callback(new Error('请输入用户名'));
       }
       callback();
     }
 
-    var validatePassword = (rule, value, callback) => {
+    var validatePassword = (rules, value, callback) => {
       if (value === '') {
         callback(new Error('请输入密码'));
       }
@@ -87,11 +86,23 @@ export default {
       });
     },
 
-    rotateLogin(val) {
+    hideView(val) {
       if(val === true){
-        let elem = document.querySelector(".login");
-        elem.style.transform = "rotateY(180deg)";
+        let elem = document.querySelector('.login');
+        elem.style.transform = 'rotateY(180deg)';
+        elem.style.opacity = 0;
+        elem.style.height = '470px';
+      }
+    },
 
+    showView(val) {
+      if(val === true){
+        let elem = document.querySelector('.login');
+        elem.style.transform = 'rotateY(0deg)'
+        elem.style.opacity = 1;
+        setTimeout(() => {
+          elem.style.height = '400px';
+        }, 300);
       }
     }
   },
@@ -99,14 +110,14 @@ export default {
   mounted () {
     // 在组件挂载时，使用 setTimeout 来添加 show 类，从而显示登录框
     setTimeout(() => {
-      document.querySelector('.login').classList.add('show')
+      document.querySelector('.login').style.opacity = 1;
     }, 500)
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 .login {
   position: absolute;
   display: grid;
@@ -121,14 +132,10 @@ export default {
   transition: opacity 1s ease-in-out;
   /* 设置过渡效果 */
   text-align: center;
-  transition: all 1s;
+  transition: all 1.5s ease-in-out;
   backface-visibility: hidden;
 }
 
-.login.show {
-  opacity: 1;
-  /* 通过添加 show 类来显示登录框 */
-}
 
 img {
   display: block;
@@ -138,31 +145,8 @@ img {
   height: auto;
 }
 
-.el-button {
-  background-color: orange;
-  border-color: orange;
-  color: white;
-}
-
-.loginButton,
-.loginButton:focus:not(.loginButton:hover) {
-  border: 1px solid #ff963d;
-  background: #ff963d;
-}
-
-/*鼠标悬浮，没有按下；鼠标按下后抬起，没有移开*/
-.loginButton:focus,
-.loginButton:hover {
-  background-color: orange;
-  border-color: orange;
-  color: white;
-}
-
-/*鼠标按下，没有抬起*/
-.loginButton:active {
-  background-color: orange;
-  border-color: orange;
-  color: white;
+.el-input {
+  width: 380px;
 }
 
 .grid-content {
