@@ -1,55 +1,45 @@
 <template>
-  <div class="back">
-    <div class="container">
-      <LoginView ref="child1" v-on:hideLogin="hideLogin" />
-      <SignUpView ref="child2" v-on:hideSignUp="hideSignUp"></SignUpView>
-    </div>
+  <div class="head">
+  <div id="topFont">
+  <a>登录</a>
+  <a style="margin-left: 20px;">注册</a>
+  </div>
+  
   </div>
 </template>
 
 <script>
-import LoginView from './components/LoginView.vue'
-import SignUpView from './components/SignUpView.vue';
-
 export default {
-  name: 'App',
-  components: {
-    LoginView,
-    SignUpView,
-  },
 
-  methods: {
-    hideLogin (val) {
-      this.$refs.child1.hideView(val);
-      this.$refs.child2.showView(val);
-    },
-
-    hideSignUp (val) {
-      this.$refs.child2.hideView(val);
-      this.$refs.child1.showView(val);
-    }
-  }
 }
 </script>
 
 <style>
-.back {
-  position: flex;
+.head {
+  background: linear-gradient(to right, rgb(255,150,61), rgb(255,204,199));
+  height: 40%;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image: url('./img/orange-pink.png');
-  background-size: cover;
+  position: absolute;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+#topFont {
+  position: relative;
+  height: 30px;
+  margin: 15px;
+  text-align: right;
+  font-size: medium;
+  font-weight: 800;
+  color: white;
 }
 
-
-
+#topFont a::before {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100px;
+  background-color: #fff;
+  position: absolute;
+  bottom: -5px; /* 控制线条位置 */
+  right: -15px; /* 控制线条位置 */
+}
 </style>
