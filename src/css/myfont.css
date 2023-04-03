@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'XiMaiTi'; /* 自定义字体名称 */
+  src: url('../assets/fonts/ZiZhiQuXiMaiTi-2.ttf'); /* 字体文件路径 */
+  /* 如果你有多种字体文件，可以在 src 中添加逗号分隔的多个路径，以确保浏览器能够找到适合自己的字体格式 */
+}
