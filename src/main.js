@@ -6,6 +6,8 @@ import Axios from 'axios'
 import './css/mybtn.css'
 import './css/myfont.css'
 
+
+
 Vue.prototype.http = Axios //配置Vue原型
 Vue.config.productionTip = false
 Vue.use(Button)

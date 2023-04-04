@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import LoginView from './components/LoginView.vue'
-import SignUpView from './components/SignUpView.vue';
+import LoginView from './LoginView.vue'
+import SignUpView from './SignUpView.vue';
 
 export default {
-  name: 'App',
+  name: 'LoginPage',
   components: {
     LoginView,
     SignUpView,
@@ -39,7 +39,7 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url('./img/orange-pink.png');
+  background-image: url('../img/orange-pink.png');
   background-size: cover;
 }
 

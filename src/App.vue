@@ -5,12 +5,14 @@
   <a style="margin-left: 20px;">注册</a>
   </div>
   <div class="hiwik"></div>
-  <div class="tip">It's HeHe and KK's Blog.</div>
+  <div id="tip">It's HeHe and KK's Blog.</div>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'HomePage',
+  
   data() {
     return {
       
@@ -42,6 +44,8 @@ export default {
     let elem = document.querySelector(".head");
     elem.style.height = window.innerHeight*0.4 + "px";
     this.typehiwik("HiwiK", 500);
+    let tip = document.querySelector("#tip");
+    tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
   },
 }
 </script>
@@ -88,5 +92,13 @@ export default {
   transition: all 1s;
 }
 
+#tip {
+  color: white;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0.4em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+}
 
 </style>
