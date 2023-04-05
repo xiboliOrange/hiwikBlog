@@ -5,8 +5,8 @@ import {Button, Input, Checkbox, Header, Aside, Main, Footer, Row, Col, Form, Fo
 import Axios from 'axios'
 import './css/mybtn.css'
 import './css/myfont.css'
-
-
+import VueRouter from 'vue-router'
+import router from './routes/main';
 
 Vue.prototype.http = Axios //配置Vue原型
 Vue.config.productionTip = false
@@ -22,8 +22,9 @@ Vue.use(Col)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Carousel)
-
+Vue.use(VueRouter)
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')
