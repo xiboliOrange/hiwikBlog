@@ -1,13 +1,6 @@
 <template>
-  <div class="head">
+  <div>
     <router-view></router-view>
-    <div id="topFont">
-    
-      <button @click="tologin()">登录</button>
-      <a style="margin-left: 20px" >注册</a>
-    </div>
-    <div class="hiwik"></div>
-    <div id="tip">It's HeHe and KK's Blog.</div>
   </div>
 </template>
 
@@ -20,36 +13,12 @@ export default {
   },
 
   methods: {
-    typehiwik(text, delay) {
-      let characters = text.split('')
-      let elem = document.querySelector('.hiwik')
-      characters.forEach((char, index) => {
-        setTimeout(() => {
-          elem.textContent += char
-          if (char === 'H') {
-            elem.style.transform = 'translateY(4px)'
-          } else if (char === 'w') {
-            elem.style.transform = 'translateY(-4px)'
-          } else if (char === 'K') {
-            elem.style.transform = 'translateY(4px)'
-          } else {
-            elem.style.transform = 'none'
-          }
-        }, delay * index)
-      })
-    },
-    tologin(){
-      this.$router.push('/login')
-    }
+  
+
   },
 
   mounted() {
-    let elem = document.querySelector('.head')
-    elem.style.height = window.innerHeight * 0.4 + 'px'
-    this.typehiwik('HiwiK', 500)
-    let tip = document.querySelector('#tip')
-    tip.style.transform =
-      'translateY(' + -window.innerHeight * 0.4 * 0.15 + 'px)'
+
   },
 }
 </script>
