@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import LoginView from './LoginView.vue'
-import SignUpView from './SignUpView.vue';
+import LoginView from '../components/LoginView.vue'
+import SignUpView from '../components/SignUpView.vue';
 
 export default {
   name: 'LoginPage',

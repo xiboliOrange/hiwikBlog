@@ -176,6 +176,8 @@ export default {
     //验证用户名是否存在
     checkUserExist() {},
   },
+
+  
 }
 </script>
 
