@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './plugins/element.js'
-import {Button, Input, Checkbox, Header, Aside, Main, Footer, Row, Col, Form, FormItem, Carousel} from 'element-ui'
+import {Button, Input, Checkbox, Header, Aside, Main, Footer, Row, Col, Form, FormItem, Carousel, CarouselItem,} from 'element-ui'
 import Axios from 'axios'
 import './css/mybtn.css'
 import './css/myfont.css'
@@ -22,7 +22,9 @@ Vue.use(Col)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Carousel)
+Vue.use(CarouselItem)
 Vue.use(VueRouter)
+
 
 new Vue({
   router,

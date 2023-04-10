@@ -5,7 +5,11 @@
   </div>
   <div class="hiwik"></div>
   <div id="tip">It's HeHe and KK's Blog.</div>
-  <div class="columns"></div>
+  <div class="columns">
+    <i class="el-icon-s-unfold" id="icon-left"></i>
+    <i class="el-icon-search" id="icon-right"></i>
+  </div>
+  <router-view></router-view>
   </div>
 </template>
 
@@ -40,7 +44,7 @@ export default {
     },
 
     toLogin() {
-      this.$router.push("/login");
+      this.$router.replace("/login");
     }
   },
 
@@ -50,6 +54,10 @@ export default {
     this.typehiwik("HiwiK", 500);
     let tip = document.querySelector("#tip");
     tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
+    var distance  = window.innerWidth/16;
+    document.querySelector("#icon-left").style.left = distance + "px";
+    document.querySelector("#icon-right").style.right = distance + "px";
+    
   },
 }
 </script>
@@ -117,6 +125,16 @@ a:hover {
   width: 100%;
   height: 60px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  color: #cdcdcd;
+  margin-bottom: 50px;
+}
+
+#icon-left,
+#icon-right {
+  position: absolute;
 }
 
 </style>
