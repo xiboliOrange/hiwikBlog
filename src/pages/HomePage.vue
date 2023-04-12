@@ -63,7 +63,6 @@ export default {
       elem.style.width = window.innerWidth + "px";
       elem.style.height = window.innerHeight*0.4 + "px";
       tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
-      console.log(window.innerWidth);
     }
   },
 }
