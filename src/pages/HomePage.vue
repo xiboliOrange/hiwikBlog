@@ -50,6 +50,7 @@ export default {
 
   mounted() {
     let elem = document.querySelector(".head");
+    elem.style.width = window.innerWidth + "px";
     elem.style.height = window.innerHeight*0.4 + "px";
     this.typehiwik("HiwiK", 500);
     let tip = document.querySelector("#tip");
@@ -58,6 +59,12 @@ export default {
     document.querySelector("#icon-left").style.left = distance + "px";
     document.querySelector("#icon-right").style.right = distance + "px";
     
+    window.onresize = () => {
+      elem.style.width = window.innerWidth + "px";
+      elem.style.height = window.innerHeight*0.4 + "px";
+      tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
+      console.log(window.innerWidth);
+    }
   },
 }
 </script>
@@ -129,7 +136,6 @@ a:hover {
   align-items: center;
   font-size: 25px;
   color: #cdcdcd;
-  margin-bottom: 50px;
 }
 
 #icon-left,
@@ -137,4 +143,11 @@ a:hover {
   position: absolute;
 }
 
+#icon-left:hover {
+  color: orange;
+}
+
+#icon-right:hover {
+  color: orange;
+}
 </style>

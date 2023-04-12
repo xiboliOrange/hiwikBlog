@@ -1,8 +1,8 @@
 <template>
   <el-carousel :interval="4000" type="card" :height=carouselHeight>
-    <el-carousel-item v-for="item in imgwrap" :key="item.id">
+    <el-carousel-item v-for="item in imgwrap" :key="item.id" style="border-radius: 10px;">
       <div class="banner">
-        <img :src="item.url"/>
+        <img :src="item.url" width="100%" height="100%"/>
         <h3>Read More</h3>
       </div>
     </el-carousel-item>
@@ -15,7 +15,7 @@ export default {
 
   data() {
     return {
-      carouselHeight : "400px",
+      carouselHeight : window.innerHeight*0.45 + 'px',
       imgwrap: [
         {id: 1, url:require("@/img/carousel_life.jpg")},
         {id :2, url:require("@/img/carousel_notes.png")},
@@ -25,15 +25,22 @@ export default {
     }
   },
 
+  methods: {
+    changeCarousel() {
+      this.carouselHeight = window.innerWidth*0.88*0.28 + "px";
+    }
+  },
+
   mounted() {
+    
     var distance  = window.innerWidth/16;
     let carousel = document.querySelector(".el-carousel");
+    carousel.style.marginTop = window.innerHeight*0.05 + "px";
     carousel.style.marginLeft = distance + "px";
     carousel.style.marginRight = distance + "px";
-    this.carouselHeight = window.innerHeight*0.45 + "px";
-    window.onresize = () => {
-      this.carouselHeight = window.innerHeight*0.45 + "px";
-    }
+    this.carouselHeight = window.innerWidth*0.88*0.28 + "px";
+    
+    window.addEventListener('resize', () => this.changeCarousel());
   }
 }
 </script>
@@ -48,11 +55,11 @@ export default {
 }
 
 .el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
+  background-color: white;
 }
 
 .el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
+  background-color: white;
 }
 
 .banner {
@@ -69,13 +76,17 @@ export default {
   position: absolute;
   line-height: 30px;
   width: 150px;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   background-color: white;
   padding: 10px;
   border-radius: 10px;
-  
+}
+
+.banner h3:hover {
+  background-color: orange;
+  color: white;
 }
 </style>
