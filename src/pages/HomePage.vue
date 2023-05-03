@@ -4,7 +4,7 @@
   <a @click="toLogin()">登录 / 注册</a>
   </div>
   <div class="hiwik"></div>
-  <div id="tip">It's HeHe and KK's Blog.</div>
+  <div id="tip">It's HeHexixi and KK's Blog.</div>
   <div class="columns">
     <i class="el-icon-s-unfold" id="icon-left"></i>
     <i class="el-icon-search" id="icon-right"></i>
