@@ -1,13 +1,13 @@
 <template>
-  <div class="head">
+  <div class="head" >
   <div id="topFont">
   <a @click="toLogin()">登录 / 注册</a>
   </div>
   <div class="hiwik"></div>
   <div id="tip">It's HeHe and KK's Blog.</div>
   <div class="columns">
-    <i class="el-icon-s-unfold" id="icon-left"></i>
-    <i class="el-icon-search" id="icon-right"></i>
+    <i class="el-icon-s-unfold" id="icon-left" :style="{marginLeft : iconDistance, 'marginRight': '10px'}"></i>
+    <el-input  v-model="searchContent" placeholder="请输入搜索关键字" :style="{ width: inputWidth , 'text-align':'center'}" suffix-icon = "el-icon-search"></el-input>
   </div>
   <router-view></router-view>
   </div>
@@ -19,7 +19,11 @@ export default {
   
   data() {
     return {
-      
+      searchContent : '',
+      searchMode : false,
+      inputWidth : window.innerWidth*0.85 + "px",
+      iconDistance : window.innerWidth / 16 + "px",
+      inputDistance : window.innerWidth / 10 + "px",
     }
   },
 
@@ -45,9 +49,14 @@ export default {
 
     toLogin() {
       this.$router.replace("/login");
+    },
+
+    toSearchMode() {
+      this.searchMode = !this.searchMode;
     }
   },
 
+ 
   mounted() {
     let elem = document.querySelector(".head");
     elem.style.width = window.innerWidth + "px";
@@ -55,16 +64,19 @@ export default {
     this.typehiwik("HiwiK", 500);
     let tip = document.querySelector("#tip");
     tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
-    var distance  = window.innerWidth/16;
-    document.querySelector("#icon-left").style.left = distance + "px";
-    document.querySelector("#icon-right").style.right = distance + "px";
+   
     
     window.onresize = () => {
       elem.style.width = window.innerWidth + "px";
       elem.style.height = window.innerHeight*0.4 + "px";
       tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
+      this.inputWidth = window.innerWidth*0.85 + "px";
+      this.iconDistance = window.innerWidth / 16 + "px";
+      this.inputDistance = window.innerWidth /10 + "px";
     }
   },
+
+  
 }
 </script>
 
@@ -135,12 +147,10 @@ a:hover {
   align-items: center;
   font-size: 25px;
   color: #cdcdcd;
+  position: relative;
 }
 
-#icon-left,
-#icon-right {
-  position: absolute;
-}
+
 
 #icon-left:hover {
   color: orange;
@@ -149,4 +159,9 @@ a:hover {
 #icon-right:hover {
   color: orange;
 }
+
+
+
+
+
 </style>
