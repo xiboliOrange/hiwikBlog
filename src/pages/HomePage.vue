@@ -4,7 +4,7 @@
   <a @click="toLogin()">登录 / 注册</a>
   </div>
   <div class="hiwik"></div>
-  <div id="tip">It's HeHe and KK's Blog.</div>
+  <div id="tip">It's HeHexixi and KK's Blog.</div>
   <div class="columns">
     <i class="el-icon-s-unfold" id="icon-left" :style="{marginLeft : iconDistance, 'marginRight': '10px'}"></i>
     <el-input  v-model="searchContent" placeholder="请输入搜索关键字" :style="{ width: inputWidth , 'text-align':'center'}" suffix-icon = "el-icon-search"></el-input>
