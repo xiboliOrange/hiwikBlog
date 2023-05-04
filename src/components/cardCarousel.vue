@@ -3,13 +3,14 @@
     <el-carousel-item v-for="item in imgwrap" :key="item.id" style="border-radius: 10px;">
       <div class="banner">
         <img :src="item.url" width="100%" height="100%"/>
-        <h3>Read More</h3>
+        <h3 @click="toPage(item.id)">Read More</h3>
       </div>
     </el-carousel-item>
   </el-carousel>
 </template>
 
 <script>
+
 export default {
   name: 'cardCarousel',
 
@@ -28,6 +29,14 @@ export default {
   methods: {
     changeCarousel() {
       this.carouselHeight = window.innerWidth*0.88*0.28 + "px";
+    },
+
+    toPage(index) {
+      if(index == 1) {
+        this.$router.push('life');
+      } else if (index == 2) {
+        this.$router.push('notes');
+      }
     }
   },
 

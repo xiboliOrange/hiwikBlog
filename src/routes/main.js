@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import LoginPage from '@/pages/LoginPage.vue'
 import HomePage from '@/pages/HomePage'
 import cardCarousel from '@/components/cardCarousel'
+import lifeView from '@/components/lifeView'
+import notesView from '@/components/notesView'
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +27,14 @@ export default new Router({
         {
           path: 'welcome',
           component: cardCarousel,
+        },
+        {
+          path: 'life',
+          component: lifeView,
+        },
+        {
+          path: 'notes',
+          component: notesView,
         }
     ]
     }
