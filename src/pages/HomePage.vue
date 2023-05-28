@@ -4,7 +4,7 @@
   <a @click="toLogin()">登录 / 注册</a>
   </div>
   <div class="hiwik"></div>
-  <div id="tip">It's HeHexixi and KK's Blog.</div>
+  <div id="tip">It's HeHe and KK's Blog.</div>
   <div class="columns">
     <i class="el-icon-s-unfold" id="icon-left" :style="{marginLeft : iconDistance, 'marginRight': '10px'}"></i>
     <el-input  v-model="searchContent" placeholder="请输入搜索关键字" :style="{ width: inputWidth , 'text-align':'center'}" suffix-icon = "el-icon-search"></el-input>
@@ -64,7 +64,9 @@ export default {
     this.typehiwik("HiwiK", 500);
     let tip = document.querySelector("#tip");
     tip.style.transform = "translateY(" + (-window.innerHeight*0.4*0.15 )+ "px)";
-   
+    setTimeout(() => {
+      tip.style.opacity = 1;
+    }, 1000);
     
     window.onresize = () => {
       elem.style.width = window.innerWidth + "px";
@@ -130,6 +132,8 @@ export default {
   letter-spacing: 0.4em;
   font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
 
 a:hover {

@@ -18,11 +18,11 @@ export default {
     return {
       carouselHeight : window.innerHeight*0.45 + 'px',
       imgwrap: [
-        {id: 1, url:require("@/img/carousel_life.jpg")},
-        {id :2, url:require("@/img/carousel_notes.png")},
-        {id :3, url:require("@/img/carousel_us.jpg")}
-       
+        {id: 0, url:require("@/img/carousel_life.jpg")},
+        {id :1, url:require("@/img/carousel_notes.png")},
+        {id :2, url:require("@/img/carousel_us.jpg")}
       ],
+      pages: ['life', 'notes', 'us'],
     }
   },
 
@@ -32,11 +32,9 @@ export default {
     },
 
     toPage(index) {
-      if(index == 1) {
-        this.$router.push('life');
-      } else if (index == 2) {
-        this.$router.push('notes');
-      }
+      console.log('index'+this.pages[index]);
+      this.$router.push(this.pages[index]);
+      
     }
   },
 

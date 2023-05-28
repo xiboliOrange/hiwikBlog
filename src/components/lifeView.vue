@@ -1,5 +1,9 @@
 <template>
-  <div>生活</div>
+  <div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, qui nobis
+    ad facere odit possimus distinctio esse iste, rem quasi, ipsa ducimus
+    quisquam excepturi unde aut. Fugit aut quibusdam reiciendis!
+  </div>
 </template>
 
 <script>
@@ -8,6 +12,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -5,6 +5,7 @@ import HomePage from '@/pages/HomePage'
 import cardCarousel from '@/components/cardCarousel'
 import lifeView from '@/components/lifeView'
 import notesView from '@/components/notesView'
+import usView from '@/components/usView'
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +36,10 @@ export default new Router({
         {
           path: 'notes',
           component: notesView,
+        },
+        {
+          path: 'us',
+          component: usView,
         }
     ]
     }
